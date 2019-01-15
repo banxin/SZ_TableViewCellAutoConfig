@@ -12,7 +12,7 @@ import UIKit
 @objc protocol SZCellBuilderDataSource {
     
     /// 获取cell的tableView （可能需要用到table，例：自动缓存行高时）
-    @objc optional func tableViewForCell() -> UITableView
+    @objc optional func tableViewForCellBuilder() -> UITableView
 }
 
 /// cell 创建 protocol

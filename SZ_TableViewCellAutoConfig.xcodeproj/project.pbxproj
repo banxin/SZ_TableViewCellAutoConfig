@@ -34,6 +34,16 @@
 		EEAF29FB21E865DC00CC27FF /* SameDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF29FA21E865DC00CC27FF /* SameDataModel.swift */; };
 		EEAF29FD21E867AD00CC27FF /* DifferentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF29FC21E867AD00CC27FF /* DifferentDataModel.swift */; };
 		EEAF29FF21E86BB000CC27FF /* SZSameDataModelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF29FE21E86BB000CC27FF /* SZSameDataModelCellDelegate.swift */; };
+		EEAF2A0321E894EF00CC27FF /* SameDataModelTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A0221E894EF00CC27FF /* SameDataModelTypeCell.swift */; };
+		EEAF2A0521E8964B00CC27FF /* UITableView+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A0421E8964B00CC27FF /* UITableView+SZ.swift */; };
+		EEAF2A0721E8967600CC27FF /* UITableViewCell+SZ.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A0621E8967600CC27FF /* UITableViewCell+SZ.swift */; };
+		EEAF2A0A21E8971500CC27FF /* TableViewCellAutoConfigUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A0921E8971500CC27FF /* TableViewCellAutoConfigUtil.swift */; };
+		EEAF2A0D21E89D9F00CC27FF /* AutoCellConfigContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A0C21E89D9F00CC27FF /* AutoCellConfigContentView.swift */; };
+		EEAF2A1021EC2EFA00CC27FF /* SameDataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = EEAF2A0F21EC2EFA00CC27FF /* SameDataModel.json */; };
+		EEAF2A1221EC2F2C00CC27FF /* DifferentDataModel.json in Resources */ = {isa = PBXBuildFile; fileRef = EEAF2A1121EC2F2C00CC27FF /* DifferentDataModel.json */; };
+		EEAF2A1421EC2F9A00CC27FF /* SameDataModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A1321EC2F9A00CC27FF /* SameDataModelViewModel.swift */; };
+		EEAF2A1621EC3A3600CC27FF /* SameDataModelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A1521EC3A3600CC27FF /* SameDataModelListView.swift */; };
+		EEAF2A1A21ED835F00CC27FF /* SZSameDataModelActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A1921ED835F00CC27FF /* SZSameDataModelActionControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +78,16 @@
 		EEAF29FA21E865DC00CC27FF /* SameDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataModel.swift; sourceTree = "<group>"; };
 		EEAF29FC21E867AD00CC27FF /* DifferentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDataModel.swift; sourceTree = "<group>"; };
 		EEAF29FE21E86BB000CC27FF /* SZSameDataModelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZSameDataModelCellDelegate.swift; sourceTree = "<group>"; };
+		EEAF2A0221E894EF00CC27FF /* SameDataModelTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataModelTypeCell.swift; sourceTree = "<group>"; };
+		EEAF2A0421E8964B00CC27FF /* UITableView+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+SZ.swift"; sourceTree = "<group>"; };
+		EEAF2A0621E8967600CC27FF /* UITableViewCell+SZ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+SZ.swift"; sourceTree = "<group>"; };
+		EEAF2A0921E8971500CC27FF /* TableViewCellAutoConfigUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAutoConfigUtil.swift; sourceTree = "<group>"; };
+		EEAF2A0C21E89D9F00CC27FF /* AutoCellConfigContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoCellConfigContentView.swift; sourceTree = "<group>"; };
+		EEAF2A0F21EC2EFA00CC27FF /* SameDataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SameDataModel.json; sourceTree = "<group>"; };
+		EEAF2A1121EC2F2C00CC27FF /* DifferentDataModel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DifferentDataModel.json; sourceTree = "<group>"; };
+		EEAF2A1321EC2F9A00CC27FF /* SameDataModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataModelViewModel.swift; sourceTree = "<group>"; };
+		EEAF2A1521EC3A3600CC27FF /* SameDataModelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataModelListView.swift; sourceTree = "<group>"; };
+		EEAF2A1921ED835F00CC27FF /* SZSameDataModelActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZSameDataModelActionControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +174,7 @@
 		EEAF29BF21E8327400CC27FF /* SameDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				EEAF2A1321EC2F9A00CC27FF /* SameDataModelViewModel.swift */,
 			);
 			path = SameDataModel;
 			sourceTree = "<group>";
@@ -220,6 +241,8 @@
 		EEAF29C821E8327500CC27FF /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				EEAF2A0E21EC2EFA00CC27FF /* JSONFile */,
+				EEAF2A0821E896DE00CC27FF /* Utils */,
 				EEAF29ED21E836EC00CC27FF /* AutoCellConfig */,
 			);
 			path = Others;
@@ -228,6 +251,7 @@
 		EEAF29C921E8327500CC27FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EEAF2A0B21E89D8800CC27FF /* Common */,
 				EEAF29CA21E8327500CC27FF /* DifferentDataModel */,
 				EEAF29CB21E8327500CC27FF /* SameDataModel */,
 			);
@@ -245,7 +269,10 @@
 			isa = PBXGroup;
 			children = (
 				EEAF29F421E840F100CC27FF /* SZSameDataModelCellBulider.swift */,
+				EEAF2A1921ED835F00CC27FF /* SZSameDataModelActionControl.swift */,
 				EEAF29FE21E86BB000CC27FF /* SZSameDataModelCellDelegate.swift */,
+				EEAF2A0221E894EF00CC27FF /* SameDataModelTypeCell.swift */,
+				EEAF2A1521EC3A3600CC27FF /* SameDataModelListView.swift */,
 			);
 			path = SameDataModel;
 			sourceTree = "<group>";
@@ -273,6 +300,8 @@
 				EEAF29D921E8358E00CC27FF /* UIImage+SZ.swift */,
 				EEAF29DA21E8358E00CC27FF /* UILabel+SZ.swift */,
 				EEAF29DB21E8358E00CC27FF /* UIScreen+SZ.swift */,
+				EEAF2A0421E8964B00CC27FF /* UITableView+SZ.swift */,
+				EEAF2A0621E8967600CC27FF /* UITableViewCell+SZ.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -285,6 +314,31 @@
 				EEAF29F621E843AA00CC27FF /* SZBaseCellDelegate.swift */,
 			);
 			path = AutoCellConfig;
+			sourceTree = "<group>";
+		};
+		EEAF2A0821E896DE00CC27FF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EEAF2A0921E8971500CC27FF /* TableViewCellAutoConfigUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EEAF2A0B21E89D8800CC27FF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EEAF2A0C21E89D9F00CC27FF /* AutoCellConfigContentView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		EEAF2A0E21EC2EFA00CC27FF /* JSONFile */ = {
+			isa = PBXGroup;
+			children = (
+				EEAF2A0F21EC2EFA00CC27FF /* SameDataModel.json */,
+				EEAF2A1121EC2F2C00CC27FF /* DifferentDataModel.json */,
+			);
+			path = JSONFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,7 +402,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEAF29B621E8311200CC27FF /* LaunchScreen.storyboard in Resources */,
+				EEAF2A1221EC2F2C00CC27FF /* DifferentDataModel.json in Resources */,
 				EEAF29B321E8311200CC27FF /* Assets.xcassets in Resources */,
+				EEAF2A1021EC2EFA00CC27FF /* SameDataModel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +442,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SZ_TableViewCellAutoConfig/Pods-SZ_TableViewCellAutoConfig-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -397,6 +454,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -421,24 +479,32 @@
 				EEAF29DC21E8358E00CC27FF /* Bundle+SZ.swift in Sources */,
 				EEAF29E121E8358E00CC27FF /* UIDevice+SZ.swift in Sources */,
 				EEAF29E621E8358E00CC27FF /* UIImage+SZ.swift in Sources */,
+				EEAF2A0721E8967600CC27FF /* UITableViewCell+SZ.swift in Sources */,
 				EEAF29F921E8445000CC27FF /* SZCellControlFactory.swift in Sources */,
 				EEAF29E321E8358E00CC27FF /* String+SZ.swift in Sources */,
+				EEAF2A1621EC3A3600CC27FF /* SameDataModelListView.swift in Sources */,
 				EEAF29AC21E8311000CC27FF /* AppDelegate.swift in Sources */,
 				EEAF29E521E8358E00CC27FF /* DispatchTime+Hipac.swift in Sources */,
+				EEAF2A0321E894EF00CC27FF /* SameDataModelTypeCell.swift in Sources */,
 				EEAF29EC21E835F900CC27FF /* DifferentDataModelListViewController.swift in Sources */,
 				EEAF29E821E8358E00CC27FF /* UIScreen+SZ.swift in Sources */,
 				EEAF29F521E840F100CC27FF /* SZSameDataModelCellBulider.swift in Sources */,
 				EEAF29DF21E8358E00CC27FF /* PHPhotoLibrary+SZ.swift in Sources */,
 				EEAF29FD21E867AD00CC27FF /* DifferentDataModel.swift in Sources */,
+				EEAF2A1A21ED835F00CC27FF /* SZSameDataModelActionControl.swift in Sources */,
+				EEAF2A0A21E8971500CC27FF /* TableViewCellAutoConfigUtil.swift in Sources */,
+				EEAF2A0D21E89D9F00CC27FF /* AutoCellConfigContentView.swift in Sources */,
 				EEAF29E221E8358E00CC27FF /* UIViewController+SZ.swift in Sources */,
 				EEAF29CD21E8327500CC27FF /* MainListViewController.swift in Sources */,
 				EEAF29F121E838AD00CC27FF /* SZCellBuilderFactory.swift in Sources */,
+				EEAF2A0521E8964B00CC27FF /* UITableView+SZ.swift in Sources */,
 				EEAF29EA21E835E800CC27FF /* SameDataModelListViewController.swift in Sources */,
 				EEAF29E021E8358E00CC27FF /* HUD+SZ.swift in Sources */,
 				EEAF29DD21E8358E00CC27FF /* UIView+SZ.swift in Sources */,
 				EEAF29FB21E865DC00CC27FF /* SameDataModel.swift in Sources */,
 				EEAF29F721E843AA00CC27FF /* SZBaseCellDelegate.swift in Sources */,
 				EEAF29E721E8358E00CC27FF /* UILabel+SZ.swift in Sources */,
+				EEAF2A1421EC2F9A00CC27FF /* SameDataModelViewModel.swift in Sources */,
 				EEAF29FF21E86BB000CC27FF /* SZSameDataModelCellDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

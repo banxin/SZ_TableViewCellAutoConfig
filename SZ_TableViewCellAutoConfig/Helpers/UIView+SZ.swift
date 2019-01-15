@@ -66,3 +66,44 @@ public extension UIView {
         touchEvent(self)
     }
 }
+
+// MARK: - instance method
+public extension UIView {
+    
+    /// 设置阴影
+    ///
+    /// - Parameters:
+    ///   - shadowColor:   shadowColor
+    ///   - shadowOffset:  shadowOffset
+    ///   - shadowOpacity: shadowOpacity
+    ///   - shadowRadius:  shadowRadius
+    func sz_setShadow(shadowColor: CGColor? = nil,
+                       shadowOffset: CGSize? = nil,
+                       shadowOpacity: Float? = nil,
+                       shadowRadius: CGFloat? = nil) {
+        
+        if let color = shadowColor { layer.shadowColor = color }
+        // shadowOffset阴影偏移,x向右偏移，y向下偏移，默认(0, -3),这个跟shadowRadius配合使用
+        if let offset = shadowOffset { layer.shadowOffset = offset }
+        // 阴影透明度，默认0
+        if let opacity = shadowOpacity { layer.shadowOpacity = opacity }
+        if let radius = shadowRadius { layer.shadowRadius = radius }
+    }
+    
+    /// 设置圆角和描边
+    ///
+    /// - Parameters:
+    ///   - cornerSize:  圆角 size
+    ///   - borderWidth: 描边 width
+    ///   - borderColor: 描边 color
+    func sz_setRadiusAndBorder(cornerSize: CGFloat? = nil,
+                                borderWidth: CGFloat? = nil,
+                                borderColor: CGColor? = nil) {
+        
+        clipsToBounds = true
+        
+        if let size = cornerSize { layer.cornerRadius = size }
+        if let width = borderWidth { layer.borderWidth = width }
+        if let color = borderColor { layer.borderColor = color }
+    }
+}

@@ -8,6 +8,27 @@
 
 import UIKit
 
+/// 不同数据结构 类型
+///
+/// - one:   类型 1
+/// - two:   类型 2
+/// - three: 类型 3
+/// - four:  类型 4
+enum DifferentDataModelType: String {
+    
+    case one   = "DifferentDataModelTypeOne"
+    case two   = "DifferentDataModelTypeTwo"
+    case three = "DifferentDataModelTypeThree"
+    case four  = "DifferentDataModelTypeFour"
+}
+
+/// 不同数据类型 base base
+class DifferentDataModelTypeBaseBase: NSObject {
+    
+    /// 类型
+    var type: DifferentDataModelType = .one
+}
+
 /// 不同数据类型 base
 class DifferentDataModelTypeBase: NSObject {
     
@@ -39,7 +60,7 @@ class DifferentDataModelTypeThreeItem: NSObject {
 }
 
 /// 不同数据类型 第三种类型 model
-class DifferentDataModelTypeThree: NSObject {
+class DifferentDataModelTypeThree: DifferentDataModelTypeBaseBase {
     
     /// 数据 array
     var items: [DifferentDataModelTypeThreeItem]?

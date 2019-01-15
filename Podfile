@@ -11,5 +11,6 @@ target 'SZ_TableViewCellAutoConfig' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'SVProgressHUD',            '2.2.5'
   pod 'Then'
+  pod 'HandyJSON'
 
 end

@@ -8,23 +8,31 @@
 
 import Foundation
 
+import HandyJSON
+
 /// 相同数据结构 类型
 ///
-/// - SameDataModelTypeOne: 类型 1
-/// - SameDataModelTypeTwo: 类型 2
-enum SameDataModelType: String {
+/// - one: 类型 1
+/// - two: 类型 2
+enum SameDataModelType: String, HandyJSONEnum {
     
     case one = "SameDataModelTypeOne"
     case two = "SameDataModelTypeTwo"
 }
 
 /// 相同数据结构 model
-class SameDataModel: NSObject {
+class SameDataModel: HandyJSON {
     
+    /// id
+    var id: Int?
+    /// 名字
+    var name: String?
     /// 类型
     var type: SameDataModelType = .one
     /// 时间 str
     var timeStr: String?
     /// 简介
     var desc: String?
+    
+    required init() {}
 }

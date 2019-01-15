@@ -16,7 +16,7 @@ import UIKit
     /// 选择了某个item
     ///
     /// - Parameter indexPath: indexPath tableView indexPath
-    @objc optional func didSelectedItemAtIndexPath(indexPath: NSIndexPath)
+    @objc optional func didSelectedItemAtIndexPath(indexPath: IndexPath)
 }
 
 /// base cell 配置 协议 (自定义的 protocol 继承 base)

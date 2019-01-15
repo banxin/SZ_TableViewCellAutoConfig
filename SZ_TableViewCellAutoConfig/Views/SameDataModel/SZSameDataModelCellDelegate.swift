@@ -13,15 +13,25 @@ import UIKit
     
     // MARK: - optional
     
-    /// 点击了baseCell上的类型
+    /// 点击了baseCell上的名称
     ///
     /// - Parameter cell: 对应的cell
-    @objc optional func tapedTypeOnBaseCell(cell: UITableViewCell)
+    @objc optional func tapedNameOnCell(cell: UITableViewCell)
+}
+
+/// 相同的数据模型 cell 控制 代理
+@objc protocol SZSameDataModelCellControlProtocol: SZCellControlProtocol {
+    
+    /// 做点别的什么事情
+    @objc func doSomethingElse()
 }
 
 /// 相同的数据模型 cell 配置 协议
 protocol SZSameDataModelCellProtocol: SZBaseCellProtocol {
     
     /// 代理
-    var delegate: (SZCellControlProtocol & SZSameDataModelCellDelegate)? {get set}
+//    var delegate: (SZCellControlProtocol & SZSameDataModelCellDelegate)? {get set}
+    
+    /// 做点别的什么事情
+    func doSomethingConfigElse()
 }
