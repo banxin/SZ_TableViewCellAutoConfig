@@ -29,9 +29,6 @@ import UIKit
 /// 相同的数据模型 cell 配置 协议
 protocol SZSameDataModelCellProtocol: SZBaseCellProtocol {
     
-    /// 代理
-//    var delegate: (SZCellControlProtocol & SZSameDataModelCellDelegate)? {get set}
-    
     /// 做点别的什么事情
     func doSomethingConfigElse()
 }

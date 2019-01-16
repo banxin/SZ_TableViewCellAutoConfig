@@ -58,6 +58,12 @@ extension SZCellBuilderFactory {
     /// - Parameter cellBuilder: 某个 cell 实例
     func registerCellBuilder(cellBuilder: SZCellBuilderProtocol) {
         
+        // 注册 cell
+        if let tableView = cellBuilder.dataSource?.tableViewForCellBuilder?() {
+            
+            tableView.register(cellBuilder.cellClass(), forCellReuseIdentifier: cellBuilder.cellReuseId())
+        }
+        
         builderDict[cellBuilder.supportDataType()] = cellBuilder
     }
     

@@ -12,5 +12,6 @@ target 'SZ_TableViewCellAutoConfig' do
   pod 'SVProgressHUD',            '2.2.5'
   pod 'Then'
   pod 'HandyJSON'
+  pod 'Kingfisher'
 
 end

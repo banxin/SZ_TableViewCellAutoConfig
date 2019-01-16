@@ -18,8 +18,8 @@ class SameDataModelTypeUtil {
     /// - Parameters:
     ///   - model:     数据模型
     ///   - tableView: tableView
-    ///   - cell:      高度
-    /// - Returns: button
+    ///   - cell:      目标cell
+    /// - Returns: 高度
     static func cellHeightWithModel(model: Any, tableView: UITableView, cell: AnyClass) -> CGFloat {
         
         guard let cell = cell as? UITableViewCell.Type, let model = model as? SameDataModel else { return 0 }

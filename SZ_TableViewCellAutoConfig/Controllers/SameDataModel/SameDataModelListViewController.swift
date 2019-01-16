@@ -216,14 +216,6 @@ extension SameDataModelListViewController {
         
         cellBuildFactory.registerCellBuilder(cellBuilder: oneBuilder)
         cellBuildFactory.registerCellBuilder(cellBuilder: twoBuilder)
-        
-        for var builder in cellBuildFactory.allCellBuilderList() {
-            
-            if let tableView = builder.dataSource?.tableViewForCellBuilder?() {
-                
-                tableView.register(builder.cellClass(), forCellReuseIdentifier: builder.cellReuseId())
-            }
-        }
     }
     
     /// 初始化 cell control 工厂

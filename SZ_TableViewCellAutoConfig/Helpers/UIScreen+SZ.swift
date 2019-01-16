@@ -28,3 +28,15 @@ extension UIScreen {
         return UIDevice.current.sz_isNotchPhone ? 88 : 64
     }
 }
+
+public extension UIScreen {
+    
+    /// 根据屏幕适配
+    ///
+    /// - Parameter originalNum: 原始值
+    /// - Returns: 适配后的值
+    static func sz_layoutUI(originalNum: CGFloat) -> CGFloat {
+        
+        return UIScreen.main.sz_screenWidth / 375.0 * originalNum
+    }
+}

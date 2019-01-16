@@ -8,6 +8,8 @@
 
 import UIKit
 
+import HandyJSON
+
 /// 不同数据结构 类型
 ///
 /// - one:   类型 1
@@ -22,55 +24,97 @@ enum DifferentDataModelType: String {
     case four  = "DifferentDataModelTypeFour"
 }
 
-/// 不同数据类型 base base
-class DifferentDataModelTypeBaseBase: NSObject {
+/// 不同数据类型 base
+class DifferentDataModelBaseModel: HandyJSON, SZCellModelExtentionProtocol {
     
     /// 类型
     var type: DifferentDataModelType = .one
-}
-
-/// 不同数据类型 base
-class DifferentDataModelTypeBase: NSObject {
     
-    /// 标题
-    var title: String?
-    /// 内容
-    var content: String?
+    required init() {}
+    
+    // MARK: - SZCellModelExtentionProtocol
+    
+    func modelExtentionItemType() -> String {
+        
+        return DifferentDataModelType.one.rawValue
+    }
 }
 
 /// 不同数据类型 第一种类型 model
-class DifferentDataModelTypeOne: DifferentDataModelTypeBase {
+class DifferentDataModelOneModel: DifferentDataModelBaseModel {
     
     /// 时间
     var timeStr: String?
+    /// 天气情况
+    var summary: String?
+    /// 天气图片
+    var icon: String?
+    /// 温度
+    var temperature: String?
+    /// 湿度
+    var humidity: String?
+    
+    // MARK: - SZCellModelExtentionProtocol
+    override func modelExtentionItemType() -> String {
+        
+        return DifferentDataModelType.one.rawValue
+    }
 }
 
 /// 不同数据类型 第二种类型 model
-class DifferentDataModelTypeTwo: DifferentDataModelTypeBase {
+class DifferentDataModelTwoModel: DifferentDataModelBaseModel {
     
-    /// 图片颜色 str
-    var imageColor: String?
-}
-
-/// 不同数据类型 第三种类型 item model
-class DifferentDataModelTypeThreeItem: NSObject {
+    /// 图片名称
+    var imageUrl: String?
+    /// 名字
+    var name: String?
+    /// 简介
+    var priceStr: String?
     
-    /// 标题
-    var title: String?
+    // MARK: - SZCellModelExtentionProtocol
+    override func modelExtentionItemType() -> String {
+        
+        return DifferentDataModelType.two.rawValue
+    }
 }
 
 /// 不同数据类型 第三种类型 model
-class DifferentDataModelTypeThree: DifferentDataModelTypeBaseBase {
+class DifferentDataModelThreeModel: DifferentDataModelBaseModel {
     
-    /// 数据 array
-    var items: [DifferentDataModelTypeThreeItem]?
+    /// id
+    var id: Int?
+    /// 名字
+    var name: String?
+    /// 简介
+    var desc: String?
+    
+    // MARK: - SZCellModelExtentionProtocol
+    override func modelExtentionItemType() -> String {
+        
+        return DifferentDataModelType.three.rawValue
+    }
+}
+
+/// 不同数据类型 第四种类型 item model
+class DifferentDataModelFourItemModel: HandyJSON {
+    
+    // 图片 链接
+    var imgUrl: String?
+    
+    required init() {}
 }
 
 /// 不同数据类型 第四种类型 model
-// TODO: -（暂时先不启用，用来测试，同一个cell支持不同的数据结构）
-class DifferentDataModelTypeFour: NSObject {
+class DifferentDataModelFourModel: DifferentDataModelBaseModel {
     
-    
+    // 资源位 itemList
+    var items: [DifferentDataModelFourItemModel]?
+
+    // MARK: - SZCellModelExtentionProtocol
+    override func modelExtentionItemType() -> String {
+        
+        return DifferentDataModelType.four.rawValue
+    }
 }
 
 /// 不同数据类型 model
