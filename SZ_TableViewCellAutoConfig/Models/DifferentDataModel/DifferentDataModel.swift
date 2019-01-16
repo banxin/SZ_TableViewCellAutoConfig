@@ -44,9 +44,9 @@ class DifferentDataModelBaseModel: HandyJSON, SZCellModelExtentionProtocol {
 class DifferentDataModelOneModel: DifferentDataModelBaseModel {
     
     /// 时间
-    var timeStr: String?
-    /// 天气情况
-    var summary: String?
+    var date: String?
+    /// 星期
+    var week: String?
     /// 天气图片
     var icon: String?
     /// 温度
@@ -68,8 +68,10 @@ class DifferentDataModelTwoModel: DifferentDataModelBaseModel {
     var imageUrl: String?
     /// 名字
     var name: String?
-    /// 简介
-    var priceStr: String?
+    /// 合作门店类型名
+    var cooperationShopStr: String?
+    /// 合作门店数
+    var cooperationShopCount: Int = 0
     
     // MARK: - SZCellModelExtentionProtocol
     override func modelExtentionItemType() -> String {

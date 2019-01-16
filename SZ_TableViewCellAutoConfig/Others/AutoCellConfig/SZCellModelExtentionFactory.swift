@@ -34,7 +34,7 @@ extension SZCellModelExtentionFactory {
     /// 注册 model
     ///
     /// - Parameter model: model
-    private func registerModelExtention(model: SZCellModelExtentionProtocol) {
+    func registerModelExtention(model: SZCellModelExtentionProtocol) {
         
         extentionDict[model.modelExtentionItemType()] = model
     }

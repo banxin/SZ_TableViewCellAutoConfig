@@ -46,6 +46,7 @@
 		EEFBB32821EDE008008256AA /* SZCellModelExtentionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32721EDE008008256AA /* SZCellModelExtentionFactory.swift */; };
 		EEFBB32A21EDE80D008256AA /* DifferentDataModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */; };
 		EEFBB32C21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */; };
+		EEFBB32E21EF2BA3008256AA /* DifferentDataModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32D21EF2BA3008256AA /* DifferentDataModelViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		EEFBB32721EDE008008256AA /* SZCellModelExtentionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZCellModelExtentionFactory.swift; sourceTree = "<group>"; };
 		EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDataModelCell.swift; sourceTree = "<group>"; };
 		EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelCellDelegate.swift; sourceTree = "<group>"; };
+		EEFBB32D21EF2BA3008256AA /* DifferentDataModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDataModelViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		EEAF29BE21E8327400CC27FF /* DifferentDataModel */ = {
 			isa = PBXGroup;
 			children = (
+				EEFBB32D21EF2BA3008256AA /* DifferentDataModelViewModel.swift */,
 			);
 			path = DifferentDataModel;
 			sourceTree = "<group>";
@@ -265,8 +268,8 @@
 		EEAF29CA21E8327500CC27FF /* DifferentDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */,
 				EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */,
+				EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */,
 			);
 			path = DifferentDataModel;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				EEFBB32C21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift in Sources */,
 				EEAF29CD21E8327500CC27FF /* MainListViewController.swift in Sources */,
 				EEAF29F121E838AD00CC27FF /* SZCellBuilderFactory.swift in Sources */,
+				EEFBB32E21EF2BA3008256AA /* DifferentDataModelViewModel.swift in Sources */,
 				EEAF2A0521E8964B00CC27FF /* UITableView+SZ.swift in Sources */,
 				EEAF29EA21E835E800CC27FF /* SameDataModelListViewController.swift in Sources */,
 				EEAF29E021E8358E00CC27FF /* HUD+SZ.swift in Sources */,

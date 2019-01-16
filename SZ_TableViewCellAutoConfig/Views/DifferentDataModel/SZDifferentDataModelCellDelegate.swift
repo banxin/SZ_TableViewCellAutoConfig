@@ -13,20 +13,35 @@ import UIKit
     
     // MARK: - optional
     
-    /// 点击了baseCell上的名称
+    /// 点击了Cell上的名称
     ///
     /// - Parameter cell: 对应的cell
     @objc optional func tapedNameOnCell(cell: UITableViewCell)
     
-    /// 点击了baseCell上的图片item
+    /// 点击了Cell上的图片item
     ///
     /// - Parameter cell: 对应的cell
     @objc optional func tapedImageItemOnCell(cell: UITableViewCell)
     
-    /// 点击了baseCell上的天气图标
+    /// 点击了Cell上的天气图标
     ///
     /// - Parameter cell: 对应的cell
     @objc optional func tapedWeatherIconOnCell(cell: UITableViewCell)
+    
+    /// 点击了Cell上的门店
+    ///
+    /// - Parameter cell: 对应的cell
+    @objc optional func tapedShopOnCell(cell: UITableViewCell)
+    
+    /// 点击了Cell上的知识
+    ///
+    /// - Parameter cell: 对应的cell
+    @objc optional func tapedKnowledgeOnCell(cell: UITableViewCell)
+    
+    /// 点击了Cell上的素材
+    ///
+    /// - Parameter cell: 对应的cell
+    @objc optional func tapedMaterialOnCell(cell: UITableViewCell)
 }
 
 /// 不同的数据模型 cell 控制 代理
