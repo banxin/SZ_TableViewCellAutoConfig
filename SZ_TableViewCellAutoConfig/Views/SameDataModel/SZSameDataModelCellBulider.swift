@@ -55,6 +55,8 @@ class SameDataModelTypeUtil {
     }
 }
 
+// MARK: --------------------------- 分割线 -----------------------------------
+
 /// 第一种类型 cell builder
 class SameDataModelTypeOneCellBuilder: SZCellBuilderProtocol {
     

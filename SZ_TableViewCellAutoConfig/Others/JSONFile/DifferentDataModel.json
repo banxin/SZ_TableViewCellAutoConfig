@@ -10,35 +10,30 @@
             }, {
                 "imgUrl": "http://img.hicdn.cn/201901/banner/01091754475381UR85_92x92.jpg"
             }]
-        }
-        ,{
+        },
+        {
+            "type":"DifferentDataModelTypeOne",
+            "date":"2019-01-18",
+            "week":"星期五",
+            "icon":"wind",
+            "temperature":"3℃ - 13℃",
+            "humidity":"71%"
+        },
+        {
             "type":"DifferentDataModelTypeTwo",
             "imageUrl": "http://img.hicdn.cn/item/201712/12251112352976.jpg",
-            "name": "PC一级品牌",
+            "name": "PC一级品牌 是品牌名称 我是品牌名称 是品牌名称 是品牌名称 是品牌名称 是品牌名称",
             "cooperationShopStr": "区域合作门店",
             "cooperationShopCount": 1,
-            "brandId": 815
-        }, {
+            "id": 815
+        },
+        {
             "type":"DifferentDataModelTypeTwo",
             "imageUrl": "http://img.hicdn.cn/item/201703/03281116559416.jpg",
             "name": "飞利浦",
             "cooperationShopStr": "市级合作门店",
             "cooperationShopCount": 2,
-            "brandId": 647
-        }, {
-            "type":"DifferentDataModelTypeTwo",
-            "imageUrl": "http://img.hicdn.cn/item/201703/03310942451904.jpg",
-            "name": "欧莱雅",
-            "cooperationShopStr": "全国合作门店",
-            "cooperationShopCount": 4,
-            "brandId": 650
-        }, {
-            "type":"DifferentDataModelTypeTwo",
-            "imageUrl": "http://img.hicdn.cn/item/201704/04101033316838.jpg",
-            "name": "蓝月亮",
-            "cooperationShopStr": "省级合作门店",
-            "cooperationShopCount": 2,
-            "brandId": 652
+            "id": 647
         },
         {
             "id":2,
@@ -47,16 +42,12 @@
             "desc":"想去学跳伞，考热气球执照，滑翔机。带着身体重量从几万米的高空俯冲向大地，直到眼前的村庄渐渐清晰。做个插上翅膀就能飞的人，即使我没有翅膀。想沉在马尔代夫的海底，跟鱼儿一起生活，在几千米的海底向往着穿透过深海的微光。随着潮汐翻涌，等待着下坠的海岸线，依着血色珊瑚，沉沦在一场又一场的梦境。"
         },
         {
-            "id":3,
-            "name":"Name - 3",
-            "type":"DifferentDataModelTypeThree",
-            "desc":"想为你播种一片麦田，"
-        },
-        {
-            "id":4,
-            "name":"Name - 4",
-            "type":"DifferentDataModelTypeThree",
-            "desc":"等待风起时无边无际的倾斜向遥远的地平线，年复一年，年复一年，我们静静的守在夕阳中，直到世界停止变迁。想去云端，找寻孩子们失落的风筝，在风筝上写封信给你，在天堂等你。想在余生中每一个日夜，亲口对你说，早安，晚安。想在海上造一所房子，夜晚的时候随着海风摇摇欲坠。"
+            "type":"DifferentDataModelTypeTwo",
+            "imageUrl": "http://img.hicdn.cn/item/201703/03310942451904.jpg",
+            "name": "欧莱雅",
+            "cooperationShopStr": "全国合作门店",
+            "cooperationShopCount": 4,
+            "id": 650
         },
         {
             "type":"DifferentDataModelTypeOne",
@@ -67,6 +58,20 @@
             "humidity":"86%"
         },
         {
+            "type":"DifferentDataModelTypeTwo",
+            "imageUrl": "http://img.hicdn.cn/item/201704/04101033316838.jpg",
+            "name": "蓝月亮",
+            "cooperationShopStr": "省级合作门店",
+            "cooperationShopCount": 2,
+            "id": 652
+        },
+        {
+            "id":3,
+            "name":"Name - 3",
+            "type":"DifferentDataModelTypeThree",
+            "desc":"想为你播种一片麦田，"
+        },
+        {
             "type":"DifferentDataModelTypeOne",
             "date":"2019-01-17",
             "week":"星期四",
@@ -75,12 +80,10 @@
             "humidity":"64%"
         },
         {
-            "type":"DifferentDataModelTypeOne",
-            "date":"2019-01-18",
-            "week":"星期五",
-            "icon":"wind",
-            "temperature":"3℃ - 13℃",
-            "humidity":"71%"
+            "id":4,
+            "name":"Name - 4",
+            "type":"DifferentDataModelTypeThree",
+            "desc":"等待风起时无边无际的倾斜向遥远的地平线，年复一年，年复一年，我们静静的守在夕阳中，直到世界停止变迁。想去云端，找寻孩子们失落的风筝，在风筝上写封信给你，在天堂等你。想在余生中每一个日夜，亲口对你说，早安，晚安。想在海上造一所房子，夜晚的时候随着海风摇摇欲坠。"
         },
         {
             "type":"DifferentDataModelTypeOne",

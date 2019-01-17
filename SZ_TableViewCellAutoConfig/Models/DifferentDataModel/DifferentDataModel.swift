@@ -64,6 +64,8 @@ class DifferentDataModelOneModel: DifferentDataModelBaseModel {
 /// 不同数据类型 第二种类型 model
 class DifferentDataModelTwoModel: DifferentDataModelBaseModel {
     
+    // id
+    var id: Int?
     /// 图片名称
     var imageUrl: String?
     /// 名字

@@ -1,8 +1,8 @@
 //
-//  DifferentDataModelCell.swift
+//  SZDifferentDataModelCell.swift
 //  SZ_TableViewCellAutoConfig
 //
-//  Created by 山竹 on 2019/1/15.
+//  Created by 山竹 on 2019/1/16.
 //  Copyright © 2019 shanzhu. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ import SnapKit
 
 // MARK: ------------------------------ 分割线 ------------------------------
 
-/// 不同数据类型 第一种 Cell  height：104
+/// 不同数据类型 第一种 Cell
 class DifferentDataModelOneCell: UITableViewCell, SZDifferentDataModelCellProtocol {
     
     // model
@@ -82,6 +82,8 @@ extension DifferentDataModelOneCell {
     
     private func setupUI() {
         
+        selectionStyle = .none
+        
         addSubview(week)
         addSubview(date)
         addSubview(temperature)
@@ -89,6 +91,8 @@ extension DifferentDataModelOneCell {
         addSubview(humid)
         
         layoutViews()
+        
+        addTouchEvent()
     }
     
     private func layoutViews() {
@@ -127,10 +131,29 @@ extension DifferentDataModelOneCell {
             maker.left.equalTo(self.temperature.snp.right)
         }
     }
+    
+    /// 添加点击事件
+    private func addTouchEvent() {
+        
+        weatherIcon.sz_addTouchEvent { [weak self] (_) in
+            
+            guard let `self` = self else { return }
+            
+            self.touchedWeatherIcon()
+        }
+    }
 }
 
 // MARK: - private method
 extension DifferentDataModelOneCell {
+    
+    private func touchedWeatherIcon() {
+        
+        if let d = delegate as? SZDifferentDataModelCellDelegate {
+            
+            d.tapedWeatherIconOnCell?(cell: self)
+        }
+    }
     
     /// 配置数据
     private func configData() {
@@ -166,12 +189,13 @@ class DifferentDataModelTwoCell: UITableViewCell, SZDifferentDataModelCellProtoc
         
         let logo = UIImageView()
         
-        logo.image = UIImage(named: "brand_default_logo")
-        logo.clipsToBounds = true
-        logo.contentMode   = .scaleAspectFill
+        logo.backgroundColor = UIColor.colorWithHex(hexString: "f1f2f3")
+        logo.clipsToBounds   = true
+        logo.contentMode     = .scaleAspectFill
+        
         logo.layer.cornerRadius = 5
-        logo.layer.borderWidth = 0.5
-        logo.layer.borderColor = UIColor.colorWithHex(hexString: "e8e8e8").cgColor
+        logo.layer.borderWidth  = 0.5
+        logo.layer.borderColor  = UIColor.colorWithHex(hexString: "e8e8e8").cgColor
         
         return logo
     }()
@@ -182,7 +206,6 @@ class DifferentDataModelTwoCell: UITableViewCell, SZDifferentDataModelCellProtoc
         $0.textColor     = UIColor.colorWithHex(hexString: "444444")
         $0.numberOfLines = 0
     }
-    
     /// 合作门店 title
     private lazy var cooperationShopTitleLabel: UILabel = UILabel.init(title: "全国合作门店：", fontSize: 14, color: UIColor.colorWithHex(hexString: "a8a8a8"))
     /// 合作门店 数量
@@ -724,13 +747,14 @@ extension DifferentDataModelFourCell {
     /// 设置UI
     private func setupUI() {
         
+        selectionStyle  = .none
         backgroundColor = UIColor.colorWithHex(hexString: "f7f7f7")
         
         let flowLayout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView.init(frame: CGRect(x: 12, y: 12, width: UIScreen.main.sz_screenWidth - 12, height: UIScreen.sz_layoutUI(originalNum: 80)), collectionViewLayout: flowLayout)
+        collectionView = UICollectionView.init(frame: CGRect(x: 12, y: 0, width: UIScreen.main.sz_screenWidth - 12, height: UIScreen.sz_layoutUI(originalNum: 80)), collectionViewLayout: flowLayout)
         
         collectionView?.backgroundColor                = UIColor.colorWithHex(hexString: "f7f7f7")
         collectionView?.showsVerticalScrollIndicator   = false

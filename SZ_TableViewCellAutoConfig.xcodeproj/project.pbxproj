@@ -44,9 +44,11 @@
 		EEAF2A1421EC2F9A00CC27FF /* SameDataModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A1321EC2F9A00CC27FF /* SameDataModelViewModel.swift */; };
 		EEAF2A1A21ED835F00CC27FF /* SZSameDataModelActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEAF2A1921ED835F00CC27FF /* SZSameDataModelActionControl.swift */; };
 		EEFBB32821EDE008008256AA /* SZCellModelExtentionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32721EDE008008256AA /* SZCellModelExtentionFactory.swift */; };
-		EEFBB32A21EDE80D008256AA /* DifferentDataModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */; };
 		EEFBB32C21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */; };
 		EEFBB32E21EF2BA3008256AA /* DifferentDataModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32D21EF2BA3008256AA /* DifferentDataModelViewModel.swift */; };
+		EEFBB33021EF313B008256AA /* SZDifferentDataModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB32F21EF313B008256AA /* SZDifferentDataModelCell.swift */; };
+		EEFBB33221EF331C008256AA /* SZDifferentDataModelCellBulider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33121EF331C008256AA /* SZDifferentDataModelCellBulider.swift */; };
+		EEFBB33421EF3D4A008256AA /* SZDifferentDataModelActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33321EF3D4A008256AA /* SZDifferentDataModelActionControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,9 +93,11 @@
 		EEAF2A1321EC2F9A00CC27FF /* SameDataModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SameDataModelViewModel.swift; sourceTree = "<group>"; };
 		EEAF2A1921ED835F00CC27FF /* SZSameDataModelActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZSameDataModelActionControl.swift; sourceTree = "<group>"; };
 		EEFBB32721EDE008008256AA /* SZCellModelExtentionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZCellModelExtentionFactory.swift; sourceTree = "<group>"; };
-		EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDataModelCell.swift; sourceTree = "<group>"; };
 		EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelCellDelegate.swift; sourceTree = "<group>"; };
 		EEFBB32D21EF2BA3008256AA /* DifferentDataModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDataModelViewModel.swift; sourceTree = "<group>"; };
+		EEFBB32F21EF313B008256AA /* SZDifferentDataModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelCell.swift; sourceTree = "<group>"; };
+		EEFBB33121EF331C008256AA /* SZDifferentDataModelCellBulider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelCellBulider.swift; sourceTree = "<group>"; };
+		EEFBB33321EF3D4A008256AA /* SZDifferentDataModelActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelActionControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +273,9 @@
 			isa = PBXGroup;
 			children = (
 				EEFBB32B21EEBF1F008256AA /* SZDifferentDataModelCellDelegate.swift */,
-				EEFBB32921EDE80D008256AA /* DifferentDataModelCell.swift */,
+				EEFBB33121EF331C008256AA /* SZDifferentDataModelCellBulider.swift */,
+				EEFBB33321EF3D4A008256AA /* SZDifferentDataModelActionControl.swift */,
+				EEFBB32F21EF313B008256AA /* SZDifferentDataModelCell.swift */,
 			);
 			path = DifferentDataModel;
 			sourceTree = "<group>";
@@ -378,6 +384,7 @@
 		EEAF29A021E8311000CC27FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = SZ;
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = shanzhu;
@@ -489,6 +496,7 @@
 				EEAF29DE21E8358E00CC27FF /* TextToast.swift in Sources */,
 				EEAF29DC21E8358E00CC27FF /* Bundle+SZ.swift in Sources */,
 				EEAF29E121E8358E00CC27FF /* UIDevice+SZ.swift in Sources */,
+				EEFBB33021EF313B008256AA /* SZDifferentDataModelCell.swift in Sources */,
 				EEAF29E621E8358E00CC27FF /* UIImage+SZ.swift in Sources */,
 				EEAF2A0721E8967600CC27FF /* UITableViewCell+SZ.swift in Sources */,
 				EEAF29F921E8445000CC27FF /* SZCellControlFactory.swift in Sources */,
@@ -498,6 +506,7 @@
 				EEAF2A0321E894EF00CC27FF /* SameDataModelTypeCell.swift in Sources */,
 				EEAF29EC21E835F900CC27FF /* DifferentDataModelListViewController.swift in Sources */,
 				EEAF29E821E8358E00CC27FF /* UIScreen+SZ.swift in Sources */,
+				EEFBB33421EF3D4A008256AA /* SZDifferentDataModelActionControl.swift in Sources */,
 				EEAF29F521E840F100CC27FF /* SZSameDataModelCellBulider.swift in Sources */,
 				EEAF29DF21E8358E00CC27FF /* PHPhotoLibrary+SZ.swift in Sources */,
 				EEAF29FD21E867AD00CC27FF /* DifferentDataModel.swift in Sources */,
@@ -513,8 +522,8 @@
 				EEAF2A0521E8964B00CC27FF /* UITableView+SZ.swift in Sources */,
 				EEAF29EA21E835E800CC27FF /* SameDataModelListViewController.swift in Sources */,
 				EEAF29E021E8358E00CC27FF /* HUD+SZ.swift in Sources */,
-				EEFBB32A21EDE80D008256AA /* DifferentDataModelCell.swift in Sources */,
 				EEAF29DD21E8358E00CC27FF /* UIView+SZ.swift in Sources */,
+				EEFBB33221EF331C008256AA /* SZDifferentDataModelCellBulider.swift in Sources */,
 				EEAF29FB21E865DC00CC27FF /* SameDataModel.swift in Sources */,
 				EEAF29F721E843AA00CC27FF /* SZBaseCellDelegate.swift in Sources */,
 				EEAF29E721E8358E00CC27FF /* UILabel+SZ.swift in Sources */,
