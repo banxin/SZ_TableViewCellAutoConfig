@@ -45,7 +45,7 @@ protocol SZAutoCofigCellTableViewDataSource {
 @objc protocol SZAutoCofigCellTableViewDelegate {
     
     /// 列表滚动
-    @objc func sz_autoCofigScrollViewDidScroll()
+    @objc optional func sz_autoCofigScrollViewDidScroll()
 }
 
 // MARK: ---------------------- SZAutoCofigCellTableView ----------------------
@@ -240,6 +240,15 @@ extension SZAutoCofigCellTableView: UITableViewDataSource, UITableViewDelegate {
                 cellControlDelegate.didSelectedItemAtIndexPath?(indexPath: indexPath)
             }
         }
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+extension SZAutoCofigCellTableView: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        delegate?.sz_autoCofigScrollViewDidScroll?()
     }
 }
 

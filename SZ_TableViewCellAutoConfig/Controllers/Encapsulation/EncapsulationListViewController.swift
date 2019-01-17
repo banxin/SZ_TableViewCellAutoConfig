@@ -39,6 +39,7 @@ extension EncapsulationListViewController {
         view.backgroundColor = UIColor.colorWithHex(hexString: "f1f2f3")
         
         autoConfigView.dataSource = self
+        autoConfigView.delegate   = self
         
         view.addSubview(autoConfigView)
         
@@ -106,6 +107,15 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
                 twoControl,
                 threeControl,
                 fourControl]
+    }
+}
+
+// MARK: - SZAutoCofigCellTableViewDelegate
+extension EncapsulationListViewController: SZAutoCofigCellTableViewDelegate {
+    
+    func sz_autoCofigScrollViewDidScroll() {
+        
+        print("tableView 滚动了")
     }
 }
 
