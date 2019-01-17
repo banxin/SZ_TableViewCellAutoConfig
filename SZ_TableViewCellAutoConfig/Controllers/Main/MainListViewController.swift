@@ -21,7 +21,9 @@ class MainListViewController: UITableViewController {
     private let bag: DisposeBag = DisposeBag()
     
     /// 展示数据
-    private var demos = BehaviorRelay<[String]>(value: ["SameDataModel Demo", "DifferentDataModel Demo"])
+    private var demos = BehaviorRelay<[String]>(value: ["SameDataModel Demo",
+                                                        "DifferentDataModel Demo",
+                                                        "Encapsulation Demo"])
     
     override func viewDidLoad() {
         

@@ -116,6 +116,9 @@ class SZDifferentDataModelTypeFourActionControl: SZDifferentDataModelBaseActionC
     
     // MARK: - SZDifferentDataModelCellDelegate
     
+    // 该类型，不需要cell点击事件，重写父类方法
+    override func didSelectedItemAtIndexPath(indexPath: IndexPath) { return }
+    
     func tapedImageItemOnCell(cell: UITableViewCell) {
         
         print("点击了 图片item")

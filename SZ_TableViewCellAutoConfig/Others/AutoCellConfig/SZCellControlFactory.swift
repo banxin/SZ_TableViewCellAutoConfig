@@ -40,22 +40,10 @@ import UIKit
     ///
     /// - Returns: 响应多个类型cell所对应的数据类型的 classString
     func supportDataTypes() -> [String]
-    
-//    // MARK: - 可选扩展
-//    
-//    /// 选择了某个item
-//    ///
-//    /// - Parameter indexPath: indexPath tableView indexPath
-//    @objc optional func didSelectedItemAtIndexPath(indexPath: NSIndexPath)
 }
 
 /// cell 事件处理control 分发工厂
 class SZCellControlFactory: NSObject {
-    
-    //    static let sharedInstance = SZCellControlFactory()
-    //
-    //    // 这样可以防止其他人使用默认的“（）”类初始化器
-    //    private override init() {}
     
     // 存储注册cell 的 dic
     private lazy var cellControlsDict = [String : SZCellControlProtocol & SZBaseCellDelegate]()

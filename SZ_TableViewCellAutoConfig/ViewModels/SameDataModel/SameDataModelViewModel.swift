@@ -18,19 +18,6 @@ class SameDataModelViewModel: NSObject {
 
     /// 展示数据列表
     var showArray: [SameDataModel]?
-    
-//    /// cell的创建工厂类
-//    private lazy var cellBuildFactory: SZCellBuilderFactory = SZCellBuilderFactory()
-//    /// cell的事件控制工厂类
-//    private lazy var cellControlFactory: SZCellControlFactory = SZCellControlFactory()
-//
-//    override init() {
-//
-//        super.init()
-//
-//        initCellBuilderFactory()
-//        initCellControlFactory()
-//    }
 }
 
 // MARK: - public method
@@ -70,53 +57,3 @@ extension SameDataModelViewModel {
         fail()
     }
 }
-
-//// MARK: - private method
-//extension SameDataModelViewModel: SZCellBuilderDataSource {
-//    
-//    func tableViewForCell() -> UITableView {
-//        
-//        return
-//    }
-//}
-//
-//// MARK: - private method
-//extension SameDataModelViewModel {
-//    
-//    /// 初始化 cell builder 工厂
-//    private func initCellBuilderFactory() {
-//        
-//        let oneCell = SameDataModelTypeOneCellBuilder()
-//        let twoCell = SameDataModelTypeTwoCellBuilder()
-//        
-//        oneCell.dataSource = self
-//        twoCell.dataSource = self
-//        
-//        cellBuildFactory.registerCellBuilder(cellBuilder: SameDataModelTypeOneCellBuilder())
-//        cellBuildFactory.registerCellBuilder(cellBuilder: SameDataModelTypeTwoCellBuilder())
-//        
-//        for var builder in cellBuildFactory.allCellBuilderList() {
-//            
-//            if let tableView = builder.dataSource?.tableViewForCell?() {
-//                
-//                tableView.register(builder.cellClass(), forCellReuseIdentifier: builder.cellReuseId())
-//            }
-//        }
-//    }
-//    
-//    /// 初始化 cell control 工厂
-//    private func initCellControlFactory() {
-//        
-////        cellControllerFactory.registerMaterialCellController(cellController: MaterialNormalActionController())
-////        cellControllerFactory.registerMaterialCellController(cellController: MaterialPosterActionController())
-////        cellControllerFactory.registerMaterialCellController(cellController: MaterialVideoActionController())
-////        cellControllerFactory.registerMaterialCellController(cellController: MaterialAdvertActionController())
-////
-////        for ctrl in cellControllerFactory.allCellControllers() {
-////
-////            ctrl.viewModel      = viewModel
-////            ctrl.viewController = self
-////            ctrl.tableView      = tableView
-////        }
-//    }
-//}

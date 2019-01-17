@@ -15,7 +15,7 @@ import SnapKit
 class DifferentDataModelListViewController: UIViewController {
     
     /// VM
-    var viewModel: DifferentDataModelViewModel = DifferentDataModelViewModel()
+    private var viewModel: DifferentDataModelViewModel = DifferentDataModelViewModel()
     
     /// 表格 view
     private var tableView: UITableView = UITableView.init(frame: CGRect.zero, style: .grouped).then {
