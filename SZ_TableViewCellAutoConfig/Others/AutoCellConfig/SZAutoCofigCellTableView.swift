@@ -11,18 +11,6 @@ import UIKit
 import Then
 import SnapKit
 
-// MARK: ---------------------- SZAutoCellCofigType ----------------------
-
-/// cell 的配置类型
-///
-/// - sameModel:      相同数据类型（使用指定的key）
-/// - differentModel: 不同数据类型（使用数据类型的 classStr）
-enum SZAutoCellCofigType: Int {
-    
-    case sameModel      = 0
-    case differentModel = 1
-}
-
 // MARK: ---------------------- SZAutoCofigCellTableViewDataSource ----------------------
 
 /// 自动配置 cell view dataSource
@@ -59,8 +47,6 @@ class SZAutoCofigCellTableView: UIView {
     var dataSource: SZAutoCofigCellTableViewDataSource?
     /// delegate
     var delegate: SZAutoCofigCellTableViewDelegate?
-    /// 配置类型
-    var configType: SZAutoCellCofigType = .sameModel
     /// tableView（对外提供的tableview，防止被篡改）
     var outerTableView: UITableView {
         
@@ -169,10 +155,10 @@ extension SZAutoCofigCellTableView: UITableViewDataSource, UITableViewDelegate {
             let item = showArray[indexPath.section]
             
             // 根据数据类型，获取对应的cell
-            if let type = type(of: item) as? AnyClass,
-                let cellBuilder = cellBuildFactory.getCellBuilderWithDataType(dataType: type),
+            if let itemTypePtl = item as? SZCellModelExtentionProtocol,
+                let cellBuilder = cellBuildFactory.getCellBuilderWithRegisterKey(registerKey: itemTypePtl.modelExtentionItemType()),
                 var cell = tableView.dequeueReusableCell(withIdentifier: cellBuilder.cellReuseId()) as? SZBaseCellProtocol,
-                let cellControlDelegate = cellControlFactory.getCellControlWithDataType(dataType: type) {
+                let cellControlDelegate = cellControlFactory.getCellControlWithDataTypeRegisterKey(registerKey: itemTypePtl.modelExtentionItemType()) {
                 
                 cell.delegate = cellControlDelegate
                 
@@ -197,8 +183,8 @@ extension SZAutoCofigCellTableView: UITableViewDataSource, UITableViewDelegate {
             let item = showArray[indexPath.section]
             
             // 根据数据类型，获取对应的cell
-            if let type = type(of: item) as? AnyClass,
-                let cellBuilder = cellBuildFactory.getCellBuilderWithDataType(dataType: type) {
+            if let itemTypePtl = item as? SZCellModelExtentionProtocol,
+                let cellBuilder = cellBuildFactory.getCellBuilderWithRegisterKey(registerKey: itemTypePtl.modelExtentionItemType()) {
                 
                 return cellBuilder.cellHeightWithModel(model: item)
             }
@@ -234,8 +220,8 @@ extension SZAutoCofigCellTableView: UITableViewDataSource, UITableViewDelegate {
             let item = showArray[indexPath.section]
             
             // 根据数据类型，获取对应的cell
-            if let type = type(of: item) as? AnyClass,
-                let cellControlDelegate = cellControlFactory.getCellControlWithDataType(dataType: type) {
+            if let itemTypePtl = item as? SZCellModelExtentionProtocol,
+                let cellControlDelegate = cellControlFactory.getCellControlWithDataTypeRegisterKey(registerKey: itemTypePtl.modelExtentionItemType()) {
                 
                 cellControlDelegate.didSelectedItemAtIndexPath?(indexPath: indexPath)
             }

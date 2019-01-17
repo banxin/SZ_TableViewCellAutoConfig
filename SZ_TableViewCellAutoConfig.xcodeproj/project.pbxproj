@@ -51,6 +51,9 @@
 		EEFBB33421EF3D4A008256AA /* SZDifferentDataModelActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33321EF3D4A008256AA /* SZDifferentDataModelActionControl.swift */; };
 		EEFBB33821F05353008256AA /* EncapsulationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33721F05353008256AA /* EncapsulationListViewController.swift */; };
 		EEFBB33A21F0577D008256AA /* SZAutoCofigCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33921F0577D008256AA /* SZAutoCofigCellTableView.swift */; };
+		EEFBB33C21F0ADD6008256AA /* SZEncapsulationCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33B21F0ADD6008256AA /* SZEncapsulationCellDelegate.swift */; };
+		EEFBB34021F0AE29008256AA /* SZEncapsulationCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB33F21F0AE29008256AA /* SZEncapsulationCellBuilder.swift */; };
+		EEFBB34221F0AE4A008256AA /* SZEncapsulationActionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFBB34121F0AE4A008256AA /* SZEncapsulationActionControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,9 @@
 		EEFBB33321EF3D4A008256AA /* SZDifferentDataModelActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZDifferentDataModelActionControl.swift; sourceTree = "<group>"; };
 		EEFBB33721F05353008256AA /* EncapsulationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncapsulationListViewController.swift; sourceTree = "<group>"; };
 		EEFBB33921F0577D008256AA /* SZAutoCofigCellTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZAutoCofigCellTableView.swift; sourceTree = "<group>"; };
+		EEFBB33B21F0ADD6008256AA /* SZEncapsulationCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZEncapsulationCellDelegate.swift; sourceTree = "<group>"; };
+		EEFBB33F21F0AE29008256AA /* SZEncapsulationCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZEncapsulationCellBuilder.swift; sourceTree = "<group>"; };
+		EEFBB34121F0AE4A008256AA /* SZEncapsulationActionControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SZEncapsulationActionControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,6 +380,9 @@
 		EEFBB33621F05319008256AA /* Encapsulation */ = {
 			isa = PBXGroup;
 			children = (
+				EEFBB33B21F0ADD6008256AA /* SZEncapsulationCellDelegate.swift */,
+				EEFBB33F21F0AE29008256AA /* SZEncapsulationCellBuilder.swift */,
+				EEFBB34121F0AE4A008256AA /* SZEncapsulationActionControl.swift */,
 			);
 			path = Encapsulation;
 			sourceTree = "<group>";
@@ -528,6 +537,7 @@
 				EEAF2A0321E894EF00CC27FF /* SameDataModelTypeCell.swift in Sources */,
 				EEAF29EC21E835F900CC27FF /* DifferentDataModelListViewController.swift in Sources */,
 				EEAF29E821E8358E00CC27FF /* UIScreen+SZ.swift in Sources */,
+				EEFBB33C21F0ADD6008256AA /* SZEncapsulationCellDelegate.swift in Sources */,
 				EEFBB33421EF3D4A008256AA /* SZDifferentDataModelActionControl.swift in Sources */,
 				EEAF29F521E840F100CC27FF /* SZSameDataModelCellBulider.swift in Sources */,
 				EEAF29DF21E8358E00CC27FF /* PHPhotoLibrary+SZ.swift in Sources */,
@@ -542,12 +552,14 @@
 				EEAF29F121E838AD00CC27FF /* SZCellBuilderFactory.swift in Sources */,
 				EEFBB32E21EF2BA3008256AA /* DifferentDataModelViewModel.swift in Sources */,
 				EEAF2A0521E8964B00CC27FF /* UITableView+SZ.swift in Sources */,
+				EEFBB34221F0AE4A008256AA /* SZEncapsulationActionControl.swift in Sources */,
 				EEAF29EA21E835E800CC27FF /* SameDataModelListViewController.swift in Sources */,
 				EEAF29E021E8358E00CC27FF /* HUD+SZ.swift in Sources */,
 				EEFBB33A21F0577D008256AA /* SZAutoCofigCellTableView.swift in Sources */,
 				EEAF29DD21E8358E00CC27FF /* UIView+SZ.swift in Sources */,
 				EEFBB33221EF331C008256AA /* SZDifferentDataModelCellBulider.swift in Sources */,
 				EEAF29FB21E865DC00CC27FF /* SameDataModel.swift in Sources */,
+				EEFBB34021F0AE29008256AA /* SZEncapsulationCellBuilder.swift in Sources */,
 				EEAF29F721E843AA00CC27FF /* SZBaseCellDelegate.swift in Sources */,
 				EEAF29E721E8358E00CC27FF /* UILabel+SZ.swift in Sources */,
 				EEAF2A1421EC2F9A00CC27FF /* SameDataModelViewModel.swift in Sources */,

@@ -1,25 +1,25 @@
 //
-//  SZDifferentDataModelCellBulider.swift
+//  SZEncapsulationCellBuilder.swift
 //  SZ_TableViewCellAutoConfig
 //
-//  Created by 山竹 on 2019/1/16.
+//  Created by 山竹 on 2019/1/17.
 //  Copyright © 2019 shanzhu. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 import HandyJSON
 
 // MARK: --------------------------- 分割线 -----------------------------------
 
 /// 第一种类型 cell builder
-class DifferentDataModelTypeOneCellBuilder: SZCellBuilderProtocol {
+class SZEncapsulationTypeOneCellBuilder: SZCellBuilderProtocol {
     
     var dataSource: SZCellBuilderDataSource?
     
     func supportDataType() -> String {
         
-        return NSStringFromClass(DifferentDataModelOneModel.self)
+        return DifferentDataModelType.one.rawValue
     }
     
     func cellHeightWithModel(model: Any) -> CGFloat {
@@ -29,7 +29,7 @@ class DifferentDataModelTypeOneCellBuilder: SZCellBuilderProtocol {
     
     func cellReuseId() -> String {
         
-        return "DifferentDataModelTypeOneCellReuseId"
+        return "SZEncapsulationTypeOneCellReuseId"
     }
     
     func cellClass() -> AnyClass {
@@ -39,13 +39,13 @@ class DifferentDataModelTypeOneCellBuilder: SZCellBuilderProtocol {
 }
 
 /// 第二种类型 cell builder
-class DifferentDataModelTypeTwoCellBuilder: SZCellBuilderProtocol {
+class SZEncapsulationTypeTwoCellBuilder: SZCellBuilderProtocol {
     
     var dataSource: SZCellBuilderDataSource?
     
     func supportDataType() -> String {
         
-        return NSStringFromClass(DifferentDataModelTwoModel.self)
+        return DifferentDataModelType.two.rawValue
     }
     
     func cellHeightWithModel(model: Any) -> CGFloat {
@@ -85,7 +85,7 @@ class DifferentDataModelTypeTwoCellBuilder: SZCellBuilderProtocol {
     
     func cellReuseId() -> String {
         
-        return "DifferentDataModelTypeTwoCellReuseId"
+        return "SZEncapsulationTypeTwoCellReuseId"
     }
     
     func cellClass() -> AnyClass {
@@ -95,13 +95,13 @@ class DifferentDataModelTypeTwoCellBuilder: SZCellBuilderProtocol {
 }
 
 /// 第三种类型 cell builder
-class DifferentDataModelTypeThreeCellBuilder: SZCellBuilderProtocol {
+class SZEncapsulationTypeThreeCellBuilder: SZCellBuilderProtocol {
     
     var dataSource: SZCellBuilderDataSource?
     
     func supportDataType() -> String {
         
-        return NSStringFromClass(DifferentDataModelThreeModel.self)
+        return DifferentDataModelType.three.rawValue
     }
     
     func cellHeightWithModel(model: Any) -> CGFloat {
@@ -141,7 +141,7 @@ class DifferentDataModelTypeThreeCellBuilder: SZCellBuilderProtocol {
     
     func cellReuseId() -> String {
         
-        return "DifferentDataModelTypeThreeCellReuseId"
+        return "SZEncapsulationTypeThreeCellReuseId"
     }
     
     func cellClass() -> AnyClass {
@@ -151,13 +151,13 @@ class DifferentDataModelTypeThreeCellBuilder: SZCellBuilderProtocol {
 }
 
 /// 第四种类型 cell builder
-class DifferentDataModelTypeFourCellBuilder: SZCellBuilderProtocol {
+class SZEncapsulationTypeFourCellBuilder: SZCellBuilderProtocol {
     
     var dataSource: SZCellBuilderDataSource?
     
     func supportDataType() -> String {
         
-        return NSStringFromClass(DifferentDataModelFourModel.self)
+        return DifferentDataModelType.four.rawValue
     }
     
     func cellHeightWithModel(model: Any) -> CGFloat {
@@ -167,7 +167,7 @@ class DifferentDataModelTypeFourCellBuilder: SZCellBuilderProtocol {
     
     func cellReuseId() -> String {
         
-        return "DifferentDataModelTypeFourCellReuseId"
+        return "SZEncapsulationTypeFourCellReuseId"
     }
     
     func cellClass() -> AnyClass {

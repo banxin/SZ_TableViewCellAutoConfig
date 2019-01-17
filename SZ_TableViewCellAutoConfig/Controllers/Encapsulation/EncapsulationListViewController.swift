@@ -75,10 +75,10 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
     
     func cellBuildersForAutoConfig() -> [SZCellBuilderProtocol]? {
         
-        let oneBuilder   = DifferentDataModelTypeOneCellBuilder()
-        let twoBuilder   = DifferentDataModelTypeTwoCellBuilder()
-        let threeBuilder = DifferentDataModelTypeThreeCellBuilder()
-        let fourBuilder  = DifferentDataModelTypeFourCellBuilder()
+        let oneBuilder   = SZEncapsulationTypeOneCellBuilder()
+        let twoBuilder   = SZEncapsulationTypeTwoCellBuilder()
+        let threeBuilder = SZEncapsulationTypeThreeCellBuilder()
+        let fourBuilder  = SZEncapsulationTypeFourCellBuilder()
         
         oneBuilder.dataSource   = self
         twoBuilder.dataSource   = self
@@ -93,10 +93,10 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
     
     func cellControlsForAutoConfig() -> [SZBaseCellDelegate & SZCellControlProtocol]? {
         
-        let oneControl   = SZDifferentDataModelTypeOneActionControl()
-        let twoControl   = SZDifferentDataModelTypeTwoActionControl()
-        let threeControl = SZDifferentDataModelTypeThreeActionControl()
-        let fourControl  = SZDifferentDataModelTypeFourActionControl()
+        let oneControl   = SZEncapsulationTypeOneActionControl()
+        let twoControl   = SZEncapsulationTypeTwoActionControl()
+        let threeControl = SZEncapsulationTypeThreeActionControl()
+        let fourControl  = SZEncapsulationTypeFourActionControl()
         
         oneControl.dataSource   = self
         twoControl.dataSource   = self
