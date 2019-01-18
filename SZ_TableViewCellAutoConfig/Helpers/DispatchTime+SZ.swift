@@ -1,9 +1,9 @@
 //
-//  DispatchTime+Hipac.swift
-//  SZ_RxProDemo
+//  DispatchTime+SZ.swift
+//  SZ_TableViewCellAutoConfig
 //
-//  Created by 山竹 on 2018/11/19.
-//  Copyright © 2018年 SZ. All rights reserved.
+//  Created by 山竹 on 2019/1/18.
+//  Copyright © 2019 shanzhu. All rights reserved.
 //
 
 import Foundation
