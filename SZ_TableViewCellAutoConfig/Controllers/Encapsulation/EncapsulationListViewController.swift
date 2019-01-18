@@ -10,6 +10,7 @@ import UIKit
 
 import Then
 import SnapKit
+import MJRefresh
 
 /// 封装后的列表
 class EncapsulationListViewController: UIViewController {
@@ -35,14 +36,14 @@ extension EncapsulationListViewController {
     /// 设置UI
     private func setupUI() {
         
-        title = "不同数据类型封装后的列表"
+        title = "封装后的实现"
         view.backgroundColor = UIColor.colorWithHex(hexString: "f1f2f3")
         
         autoConfigView.dataSource = self
         autoConfigView.delegate   = self
         
         /*
-         支持的属性自定义测试
+         支持的属性自定义
          */
         
 //        autoConfigView.sz_backgroundColor = UIColor.red
@@ -69,9 +70,9 @@ extension EncapsulationListViewController {
             
             guard let `self` = self else { return }
             
-            self.autoConfigView.refreshView(with: self.viewModel.showArray ?? [])
-            
-            print("数据获取成功。。")
+            self.autoConfigView.refreshView(with: self.viewModel.showArray ?? [],
+                                            isFirstPage: self.viewModel.isFirstPage,
+                                            isHaveNext: self.viewModel.isHaveNext)
             
             }, fail: {
                 
@@ -84,38 +85,36 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
     
     func cellBuildersForAutoConfig() -> [Any] {
         
-        let oneBuilder   = SZEncapsulationTypeOneCellBuilder()
-        let twoBuilder   = SZEncapsulationTypeTwoCellBuilder()
-        let threeBuilder = SZEncapsulationTypeThreeCellBuilder()
-        let fourBuilder  = SZEncapsulationTypeFourCellBuilder()
+        /// 需要支持的 cellBuilders
+        let supportBuilders: [SZCellBuilderProtocol] = [SZEncapsulationTypeOneCellBuilder(),
+                                                        SZEncapsulationTypeTwoCellBuilder(),
+                                                        SZEncapsulationTypeThreeCellBuilder(),
+                                                        SZEncapsulationTypeFourCellBuilder()]
         
-        oneBuilder.dataSource   = self
-        twoBuilder.dataSource   = self
-        threeBuilder.dataSource = self
-        fourBuilder.dataSource  = self
+        // 设置 dataSource
+        for var builder in supportBuilders {
+            
+            builder.dataSource = self
+        }
         
-        return [oneBuilder,
-                twoBuilder,
-                threeBuilder,
-                fourBuilder]
+        return supportBuilders
     }
     
     func cellControlsForAutoConfig() -> [Any] {
         
-        let oneControl   = SZEncapsulationTypeOneActionControl()
-        let twoControl   = SZEncapsulationTypeTwoActionControl()
-        let threeControl = SZEncapsulationTypeThreeActionControl()
-        let fourControl  = SZEncapsulationTypeFourActionControl()
+        /// 需要支持的 cellControls
+        let supportControls: [SZCellControlProtocol] = [SZEncapsulationTypeOneActionControl(),
+                                                        SZEncapsulationTypeTwoActionControl(),
+                                                        SZEncapsulationTypeThreeActionControl(),
+                                                        SZEncapsulationTypeFourActionControl()]
         
-        oneControl.dataSource   = self
-        twoControl.dataSource   = self
-        threeControl.dataSource = self
-        fourControl.dataSource  = self
+        // 设置 dataSource
+        for control in supportControls {
+            
+            control.dataSource = self
+        }
         
-        return [oneControl,
-                twoControl,
-                threeControl,
-                fourControl]
+        return supportControls
     }
     
     /*
@@ -145,14 +144,51 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
 //            $0.backgroundColor = UIColor.blue
 //        }
 //    }
+    
+    func refreshHeaderForAutoConfig() -> MJRefreshHeader {
+        
+        return MJRefreshNormalHeader()
+        
+//        return MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+//
+//            guard let `self` = self else { return }
+//
+//            self.loadData()
+//        })
+    }
+    
+    func refreshFooterForAutoConfig() -> MJRefreshFooter {
+        
+        return MJRefreshAutoStateFooter()
+        
+//        return MJRefreshAutoStateFooter(refreshingBlock: { [weak self] in
+//
+//            guard let `self` = self else { return }
+//
+//            self.loadData()
+//
+////            self.loadDataMore()
+//        })
+    }
 }
 
 // MARK: - SZAutoCofigCellTableViewDelegate
 extension EncapsulationListViewController: SZAutoCofigCellTableViewDelegate {
     
-    func sz_autoCofigScrollViewDidScroll() {
+    /*
+     可选方法的测试
+     */
+    
+//    func sz_autoCofigScrollViewDidScroll() {
+//
+//        print("tableView 滚动了")
+//    }
+    
+    func sz_reloadData(isRefresh: Bool) {
         
-        print("tableView 滚动了")
+        viewModel.page = isRefresh ? 1 : viewModel.page + 1
+        
+        self.loadData()
     }
 }
 

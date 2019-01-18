@@ -10,6 +10,7 @@ import UIKit
 
 import Then
 import SnapKit
+import MJRefresh
 
 // MARK: ---------------------- SZAutoCofigCellTableViewDataSource ----------------------
 
@@ -35,6 +36,16 @@ import SnapKit
     ///
     /// - Returns: tableFooterView
     @objc optional func tableFooterViewForAutoConfig() -> UIView
+    
+    /// 获取table的 refreshHeader
+    ///
+    /// - Returns: refreshHeader
+    @objc optional func refreshHeaderForAutoConfig() -> MJRefreshHeader
+    
+    /// 获取table的 refreshFooter
+    ///
+    /// - Returns: refreshFooter
+    @objc optional func refreshFooterForAutoConfig() -> MJRefreshFooter
 }
 
 // MARK: ---------------------- SZAutoCofigCellTableViewDelegate ----------------------
@@ -44,6 +55,11 @@ import SnapKit
     
     /// 列表滚动
     @objc optional func sz_autoCofigScrollViewDidScroll()
+    
+    /// 重新加载数据
+    ///
+    /// - Parameter isRefresh: 是否是刷新
+    @objc optional func sz_reloadData(isRefresh: Bool)
 }
 
 // MARK: ---------------------- SZAutoCofigCellTableView ----------------------
@@ -76,6 +92,7 @@ class SZAutoCofigCellTableView: UIView {
         didSet {
             
             self.initFactory()
+            self.initRefresh()
         }
     }
     /// delegate
@@ -116,6 +133,8 @@ class SZAutoCofigCellTableView: UIView {
     
     /// 展示数据
     private var showArray: [Any] = []
+    /// 当前是否第一页展示
+    private var isFirstPage: Bool = true
     
     init(frame: CGRect, dataSource: Any) {
         
@@ -160,12 +179,18 @@ extension SZAutoCofigCellTableView {
     
     /// 刷新页面
     ///
-    /// - Parameter items: 数据s
-    func refreshView(with items: [Any]) {
+    /// - Parameters:
+    ///   - items:       数据s
+    ///   - isFirstPage: 是否第一页（默认是）为了对应不使用下拉刷新但要变成第一页加载的情况
+    ///   - isHaveNext:  是否存在下一页（默认不存在）
+    func refreshView(with items: [Any],
+                     isFirstPage: Bool = true,
+                     isHaveNext: Bool = false) {
         
-        showArray = items
+        showArray        = items
+        self.isFirstPage = isFirstPage
         
-        sz_reloadTableView()
+        sz_reloadTableView(isHaveNext: isHaveNext)
     }
 }
 
@@ -320,6 +345,13 @@ extension SZAutoCofigCellTableView {
         initCellControlFactory()
     }
     
+    /// 初始化刷新控件
+    private func initRefresh() {
+        
+        initTableViewRefreshHeader()
+        initTableViewRefreshFooter()
+    }
+    
     /// 初始化 cell builder 工厂
     private func initCellBuilderFactory() {
         
@@ -350,8 +382,42 @@ extension SZAutoCofigCellTableView {
         }
     }
     
+    /// 初始化 下拉刷新控件
+    private func initTableViewRefreshHeader() {
+        
+        if let refreshHeader = dataSource?.refreshHeaderForAutoConfig?() {
+            
+            refreshHeader.refreshingBlock = { [weak self] in
+                
+                guard let `self` = self else { return }
+    
+                self.isFirstPage = true
+                self.delegate?.sz_reloadData?(isRefresh: true)
+            }
+            
+            tableView.mj_header = refreshHeader
+        }
+    }
+    
+    /// 初始化 上拉加载控件
+    private func initTableViewRefreshFooter() {
+        
+        if let refreshFooter = dataSource?.refreshFooterForAutoConfig?() {
+            
+            refreshFooter.refreshingBlock = { [weak self] in
+                
+                guard let `self` = self else { return }
+                
+                self.isFirstPage = false
+                self.delegate?.sz_reloadData?(isRefresh: false)
+            }
+            
+            tableView.mj_footer = refreshFooter
+        }
+    }
+    
     /// 重新 load TableView
-    private func sz_reloadTableView() {
+    private func sz_reloadTableView(isHaveNext: Bool = false) {
         
         if let header = dataSource?.tableHeaderViewForAutoConfig?() {
             
@@ -363,6 +429,28 @@ extension SZAutoCofigCellTableView {
             tableView.tableFooterView = footer
         }
         
+        if let _ = tableView.mj_footer {
+            
+            isHaveNext ? tableView.mj_footer.endRefreshing() : tableView.mj_footer.endRefreshingWithNoMoreData()
+        }
+        
         tableView.reloadData()
+        
+        if let _ = tableView.mj_header,
+            isFirstPage {
+            
+            tableView.mj_header.endRefreshing()
+            scrollerToTop()
+        }
+    }
+    
+    /// 滚动到顶部
+    private func scrollerToTop() {
+        
+        if showArray.count > 0 {
+            
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+//            tableView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        }
     }
 }

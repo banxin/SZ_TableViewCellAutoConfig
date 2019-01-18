@@ -18,6 +18,12 @@ class DifferentDataModelViewModel: NSObject {
     
     /// 展示数据列表
     var showArray: [Any]?
+    /// 当前页码
+    var page: Int = 1
+    /// 是否有下一页
+    var isFirstPage: Bool = true
+    /// 是否有下一页
+    var isHaveNext = false
     
     /// model 转换 工厂
     private var cellModelExtensionFactory: SZCellModelExtentionFactory = SZCellModelExtentionFactory()
@@ -40,6 +46,8 @@ extension DifferentDataModelViewModel {
     ///   - fail:    失败回调
     func fetchDifferentDataModelList(success: @escaping DifferentDataModelViewModelCallback, fail: @escaping DifferentDataModelViewModelCallback) {
         
+        isFirstPage = page == 1
+        
         if let dic = TableViewCellAutoConfigUtil.fetchLoacalMockData(fileName: "DifferentDataModel"),
             let dataDics = dic["data"] as? [[String: Any]],
             dataDics.count > 0 {
@@ -48,7 +56,24 @@ extension DifferentDataModelViewModel {
             
             if array.count > 0 {
                 
-                showArray = array
+                if isFirstPage {
+                    
+                    showArray = array
+                    
+                    isHaveNext = true
+                    
+                } else {
+                    
+                    // 三页之后没有下一页
+                    isHaveNext = !(page >= 3)
+                    
+                    if var shows = showArray {
+                        
+                        shows += array
+                        
+                        showArray = shows
+                    }
+                }
                 
                 success()
             }
@@ -66,10 +91,16 @@ extension DifferentDataModelViewModel {
     /// 初始化 model 转换工厂
     private func initModelExtensionFactory() {
         
-        cellModelExtensionFactory.registerModelExtention(model: DifferentDataModelOneModel()   as SZCellModelExtentionProtocol)
-        cellModelExtensionFactory.registerModelExtention(model: DifferentDataModelTwoModel()   as SZCellModelExtentionProtocol)
-        cellModelExtensionFactory.registerModelExtention(model: DifferentDataModelThreeModel() as SZCellModelExtentionProtocol)
-        cellModelExtensionFactory.registerModelExtention(model: DifferentDataModelFourModel()  as SZCellModelExtentionProtocol)
+        /// 需要支持的array
+        let supportModels: [DifferentDataModelBaseModel] = [DifferentDataModelOneModel(),
+                                                            DifferentDataModelTwoModel(),
+                                                            DifferentDataModelThreeModel(),
+                                                            DifferentDataModelFourModel()]
+        
+        for model in supportModels {
+            
+            cellModelExtensionFactory.registerModelExtention(model: model as SZCellModelExtentionProtocol)
+        }
     }
     
     /// 转换

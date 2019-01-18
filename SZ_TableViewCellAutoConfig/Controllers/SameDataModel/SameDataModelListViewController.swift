@@ -54,7 +54,7 @@ extension SameDataModelListViewController {
     /// 设置UI
     private func setupUI() {
         
-        title = "相同数据类型自动配置列表"
+        title = "相同数据类型未封装实现"
         view.backgroundColor = UIColor.colorWithHex(hexString: "f5f5f5")
         
         tableView.dataSource = self
