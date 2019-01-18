@@ -16,9 +16,6 @@
 
 先说说主要的思路，思路来源于现在Leader @文优 实现的某APP的搜索功能的源码，然后适当做了一些改进，既能实现很复杂的配置，也能实现一些说复杂又不复杂但代码会写的非常恶心的tableView。
 
-先看看流程图，然后再说说具体实现：
-
-
 
 #### 一、CellBuilder - Cell 创建者
 
@@ -215,9 +212,9 @@ __Tips：目前暂时没有支持SZCellControlProtocol的继承。__
 
 ```Swift
 /// 封装 事件处理基类
-class SZEncapsulationBaseActionControl: NSObject, SZDifferentDataModelCellControlProtocol, SZDifferentDataModelCellDelegate {
+class SZEncapsulationBaseActionControl: NSObject, SZCellControlProtocol, SZDifferentDataModelCellDelegate {
     
-    // MARK: - SZDifferentDataModelCellControlProtocol
+    // MARK: - SZCellControlProtocol
     
     var dataSource: SZCellControlDataSource?
     
@@ -493,6 +490,25 @@ __Tips：这里获取Builder和Control时，使用的就是对应的model实现�
 
 
 #### 五、如何使用：
+
+每个需要配置的cell均需要实现SZBaseCellProtocol：
+
+```Swift
+/// 不同数据类型 第一种 Cell
+class DifferentDataModelOneCell: UITableViewCell, SZBaseCellProtocol {
+    
+    // MARK: - ShopVisitBaseCellProtocol
+    
+    var delegate: (SZBaseCellDelegate & SZCellControlProtocol)?
+    
+    func configWithData(data: Any) {
+        
+        itemModel = data as? DifferentDataModelOneModel
+        
+        configData()
+    }
+}
+```
 
 目前自动配置的table支持的自定义属性不多，如果有更多需要，@本人或自行自定义。
 
