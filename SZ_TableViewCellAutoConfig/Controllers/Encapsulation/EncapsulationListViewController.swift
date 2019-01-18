@@ -41,6 +41,15 @@ extension EncapsulationListViewController {
         autoConfigView.dataSource = self
         autoConfigView.delegate   = self
         
+        /*
+         支持的属性自定义测试
+         */
+        
+//        autoConfigView.sz_backgroundColor = UIColor.red
+//        autoConfigView.isNeedFirstSectionHeader = false
+//        autoConfigView.sectionFooterHeight = 10
+//        autoConfigView.isNeedLastSectionFooter = false
+        
         view.addSubview(autoConfigView)
         
         autoConfigView.snp.makeConstraints { (maker) in
@@ -73,7 +82,7 @@ extension EncapsulationListViewController {
 // MARK: - SZAutoCofigCellTableViewDataSource
 extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
     
-    func cellBuildersForAutoConfig() -> [SZCellBuilderProtocol]? {
+    func cellBuildersForAutoConfig() -> [Any] {
         
         let oneBuilder   = SZEncapsulationTypeOneCellBuilder()
         let twoBuilder   = SZEncapsulationTypeTwoCellBuilder()
@@ -91,7 +100,7 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
                 fourBuilder]
     }
     
-    func cellControlsForAutoConfig() -> [SZBaseCellDelegate & SZCellControlProtocol]? {
+    func cellControlsForAutoConfig() -> [Any] {
         
         let oneControl   = SZEncapsulationTypeOneActionControl()
         let twoControl   = SZEncapsulationTypeTwoActionControl()
@@ -108,6 +117,34 @@ extension EncapsulationListViewController: SZAutoCofigCellTableViewDataSource {
                 threeControl,
                 fourControl]
     }
+    
+    /*
+     可选方法的测试
+     */
+    
+//    func tableFooterViewForAutoConfig() -> UIView {
+//
+//        return UIView().then {
+//
+//            $0.frame           = CGRect(x: 0,
+//                                        y: 0,
+//                                        width: UIScreen.main.sz_screenWidth,
+//                                        height: 30)
+//            $0.backgroundColor = UIColor.red
+//        }
+//    }
+//
+//    func tableHeaderViewForAutoConfig() -> UIView {
+//
+//        return UIView().then {
+//
+//            $0.frame           = CGRect(x: 0,
+//                                        y: 0,
+//                                        width: UIScreen.main.sz_screenWidth,
+//                                        height: 30)
+//            $0.backgroundColor = UIColor.blue
+//        }
+//    }
 }
 
 // MARK: - SZAutoCofigCellTableViewDelegate

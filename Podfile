@@ -9,9 +9,10 @@ target 'SZ_TableViewCellAutoConfig' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SnapKit', '~> 4.0.0'
-  pod 'SVProgressHUD',            '2.2.5'
+  pod 'SVProgressHUD',  '2.2.5'
   pod 'Then'
   pod 'HandyJSON'
-  pod 'Kingfisher'
+  pod 'Kingfisher',     '4.10.1'
+  pod 'MJRefresh',      '3.1.15.3'
 
 end

@@ -14,17 +14,27 @@ import SnapKit
 // MARK: ---------------------- SZAutoCofigCellTableViewDataSource ----------------------
 
 /// 自动配置 cell view dataSource
-protocol SZAutoCofigCellTableViewDataSource {
+@objc protocol SZAutoCofigCellTableViewDataSource {
     
     /// 获取自动配置的 cellBuilders
     ///
     /// - Returns: cellBuilders
-    func cellBuildersForAutoConfig() -> [SZCellBuilderProtocol]?
+    @objc func cellBuildersForAutoConfig() -> [Any]
     
     /// 获取自动配置的 cellControls
     ///
     /// - Returns: cellBuilders
-    func cellControlsForAutoConfig() -> [SZCellControlProtocol & SZBaseCellDelegate]?
+    @objc func cellControlsForAutoConfig() -> [Any]
+    
+    /// 获取table的 tableHaderView
+    ///
+    /// - Returns: tableHaderView
+    @objc optional func tableHeaderViewForAutoConfig() -> UIView
+    
+    /// 获取table的 tableFooterView
+    ///
+    /// - Returns: tableFooterView
+    @objc optional func tableFooterViewForAutoConfig() -> UIView
 }
 
 // MARK: ---------------------- SZAutoCofigCellTableViewDelegate ----------------------
@@ -43,8 +53,31 @@ class SZAutoCofigCellTableView: UIView {
     
     // MARK: - pulic property
     
+    /// 背景颜色
+    var sz_backgroundColor: UIColor = UIColor.colorWithHex(hexString: "f5f5f5") {
+        
+        didSet {
+            
+            self.tableView.backgroundColor = sz_backgroundColor
+        }
+    }
+    /// section header 高度
+    var sectionHeaderHeight: CGFloat = 12
+    /// section footer 高度（tableView的bug，设置0的话，不生效）
+    var sectionFooterHeight: CGFloat = 0.01
+    /// 是否需要首个section header
+    var isNeedFirstSectionHeader: Bool = true
+    /// 是否需要最后一个section footer
+    var isNeedLastSectionFooter: Bool  = true
+    
     /// dataSource
-    var dataSource: SZAutoCofigCellTableViewDataSource?
+    var dataSource: SZAutoCofigCellTableViewDataSource? {
+        
+        didSet {
+            
+            self.initFactory()
+        }
+    }
     /// delegate
     var delegate: SZAutoCofigCellTableViewDelegate?
     /// tableView（对外提供的tableview，防止被篡改）
@@ -70,7 +103,10 @@ class SZAutoCofigCellTableView: UIView {
             
             $0.frame = CGRect(x: 0, y: 0, width: UIScreen.main.sz_screenWidth, height: 0.01)
         })
-        $0.tableFooterView = UIView()
+        $0.tableFooterView = UIView().then({
+            
+            $0.frame = CGRect(x: 0, y: 0, width: UIScreen.main.sz_screenWidth, height: 0.01)
+        })
         
         // 解决 reload 闪烁
         $0.estimatedRowHeight           = 0
@@ -127,10 +163,9 @@ extension SZAutoCofigCellTableView {
     /// - Parameter items: 数据s
     func refreshView(with items: [Any]) {
         
-        checkFactory()
-        
         showArray = items
-        tableView.reloadData()
+        
+        sz_reloadTableView()
     }
 }
 
@@ -195,21 +230,58 @@ extension SZAutoCofigCellTableView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        return 12
+        if section == 0 && !isNeedFirstSectionHeader {
+            
+            return 0.01
+        }
+        
+        // tableView bug 设置0不生效
+        return sectionHeaderHeight > 0 ? sectionHeaderHeight : 0.01
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        if section == 0 && !isNeedFirstSectionHeader {
+            
+            return nil
+        }
+        
         return UIView().then {
             
-            $0.frame = CGRect(x: 0, y: 0, width: UIScreen.main.sz_screenWidth, height: 12)
-            $0.backgroundColor = UIColor.colorWithHex(hexString: "f5f5f5")
+            $0.frame           = CGRect(x: 0,
+                                        y: 0,
+                                        width: UIScreen.main.sz_screenWidth,
+                                        height: sectionHeaderHeight > 0 ? sectionHeaderHeight : 0.01)
+            $0.backgroundColor = self.sz_backgroundColor
         }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         
-        return 0.01
+        if section == showArray.count - 1 && !isNeedLastSectionFooter {
+            
+            return 0.01
+        }
+        
+        // tableView bug 设置0不生效
+        return sectionFooterHeight > 0 ? sectionFooterHeight : 0.01
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        if section == showArray.count - 1 && !isNeedLastSectionFooter {
+            
+            return nil
+        }
+        
+        return UIView().then {
+            
+            $0.frame           = CGRect(x: 0,
+                                        y: 0,
+                                        width: UIScreen.main.sz_screenWidth,
+                                        height: sectionFooterHeight > 0 ? sectionFooterHeight : 0.01)
+            $0.backgroundColor = self.sz_backgroundColor
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -241,18 +313,11 @@ extension SZAutoCofigCellTableView: UIScrollViewDelegate {
 // MARK: - private method
 extension SZAutoCofigCellTableView {
     
-    /// check factory 是否初始化完成
-    private func checkFactory() {
-        
-        if cellBuildFactory.allCellBuilderList().isEmpty {
-            
-            initCellBuilderFactory()
-        }
-        
-        if cellControlFactory.allCellControls().isEmpty {
-            
-            initCellControlFactory()
-        }
+    /// 初始化工厂
+    private func initFactory() {
+
+        initCellBuilderFactory()
+        initCellControlFactory()
     }
     
     /// 初始化 cell builder 工厂
@@ -262,7 +327,10 @@ extension SZAutoCofigCellTableView {
             
             for builder in builders {
                 
-                cellBuildFactory.registerCellBuilder(cellBuilder: builder)
+                if let b = builder as? SZCellBuilderProtocol {
+                    
+                    cellBuildFactory.registerCellBuilder(cellBuilder: b)
+                }
             }
         }
     }
@@ -274,8 +342,27 @@ extension SZAutoCofigCellTableView {
             
             for control in controls {
                 
-                cellControlFactory.registerCellControl(cellController: control)
+                if let c = control as? (SZCellControlProtocol & SZBaseCellDelegate) {
+                    
+                    cellControlFactory.registerCellControl(cellController: c)
+                }
             }
         }
+    }
+    
+    /// 重新 load TableView
+    private func sz_reloadTableView() {
+        
+        if let header = dataSource?.tableHeaderViewForAutoConfig?() {
+            
+            tableView.tableHeaderView = header
+        }
+        
+        if let footer = dataSource?.tableFooterViewForAutoConfig?() {
+            
+            tableView.tableFooterView = footer
+        }
+        
+        tableView.reloadData()
     }
 }
