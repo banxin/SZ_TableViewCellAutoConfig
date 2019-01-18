@@ -115,8 +115,8 @@ extension SameDataModelListViewController: UITableViewDataSource, UITableViewDel
 
                 cell.configWithData(data: item)
                 
-                // 测试代码
-                cell.doSomethingConfigElse()
+//                // 测试代码
+//                cell.doSomethingConfigElse()
 
                 return cell as? UITableViewCell ?? UITableViewCell()
             }

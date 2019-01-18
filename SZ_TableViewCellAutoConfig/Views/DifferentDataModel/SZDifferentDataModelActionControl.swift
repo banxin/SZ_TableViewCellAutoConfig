@@ -9,9 +9,9 @@
 import UIKit
 
 /// 不同数据模型 事件处理基类
-class SZDifferentDataModelBaseActionControl: NSObject, SZDifferentDataModelCellControlProtocol, SZDifferentDataModelCellDelegate {
+class SZDifferentDataModelBaseActionControl: NSObject, SZCellControlProtocol, SZDifferentDataModelCellDelegate {
     
-    // MARK: - SZDifferentDataModelCellControlProtocol
+    // MARK: - SZCellControlProtocol
     
     var dataSource: SZCellControlDataSource?
     

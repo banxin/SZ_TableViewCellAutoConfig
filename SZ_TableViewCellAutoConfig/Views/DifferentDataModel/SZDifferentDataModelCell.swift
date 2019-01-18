@@ -15,7 +15,7 @@ import SnapKit
 // MARK: ------------------------------ 分割线 ------------------------------
 
 /// 不同数据类型 第一种 Cell
-class DifferentDataModelOneCell: UITableViewCell, SZDifferentDataModelCellProtocol {
+class DifferentDataModelOneCell: UITableViewCell, SZBaseCellProtocol {
     
     // model
     var itemModel: DifferentDataModelOneModel?
@@ -62,10 +62,10 @@ class DifferentDataModelOneCell: UITableViewCell, SZDifferentDataModelCellProtoc
     
     // MARK: - ShopVisitBaseCellProtocol
     
-    func doSomethingConfigElse() {
-        
-        print("做点别的配置什么的！！！")
-    }
+//    func doSomethingConfigElse() {
+//
+//        print("做点别的配置什么的！！！")
+//    }
     
     var delegate: (SZBaseCellDelegate & SZCellControlProtocol)?
     
@@ -171,7 +171,7 @@ extension DifferentDataModelOneCell {
 // MARK: ------------------------------ 分割线 ------------------------------
 
 /// 不同数据类型 第二种 Cell
-class DifferentDataModelTwoCell: UITableViewCell, SZDifferentDataModelCellProtocol {
+class DifferentDataModelTwoCell: UITableViewCell, SZBaseCellProtocol {
     
     /// 背景 view
     private lazy var backView: UIView = {
@@ -251,10 +251,10 @@ class DifferentDataModelTwoCell: UITableViewCell, SZDifferentDataModelCellProtoc
     
     // MARK: - ShopVisitBaseCellProtocol
     
-    func doSomethingConfigElse() {
-        
-        print("做点别的配置什么的！！！")
-    }
+//    func doSomethingConfigElse() {
+//
+//        print("做点别的配置什么的！！！")
+//    }
     
     var delegate: (SZBaseCellDelegate & SZCellControlProtocol)?
     
@@ -465,7 +465,7 @@ extension DifferentDataModelTwoCell {
 // MARK: ------------------------------ 分割线 ------------------------------
 
 /// 不同数据类型 第三种 Cell
-class DifferentDataModelThreeCell: UITableViewCell, SZDifferentDataModelCellProtocol {
+class DifferentDataModelThreeCell: UITableViewCell, SZBaseCellProtocol {
     
     // model
     var itemModel: DifferentDataModelThreeModel?
@@ -515,10 +515,10 @@ class DifferentDataModelThreeCell: UITableViewCell, SZDifferentDataModelCellProt
         configData()
     }
     
-    func doSomethingConfigElse() {
-        
-        print("做点别的配置什么的！！！")
-    }
+//    func doSomethingConfigElse() {
+//
+//        print("做点别的配置什么的！！！")
+//    }
 }
 
 // MARK: - UI
@@ -690,7 +690,7 @@ extension DifferentDataModelFourItemCell {
 private let kDifferentDataModelFourCellIdentifier = "kDifferentDataModelFourCellIdentifier"
 
 /// 第四种类型 cell
-class DifferentDataModelFourCell: UITableViewCell, SZDifferentDataModelCellProtocol {
+class DifferentDataModelFourCell: UITableViewCell, SZBaseCellProtocol {
     
     /// 横向滚动 表格 view
     var collectionView: UICollectionView?
@@ -716,7 +716,7 @@ class DifferentDataModelFourCell: UITableViewCell, SZDifferentDataModelCellProto
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - SZDifferentDataModelCellProtocol
+    // MARK: - SZBaseCellProtocol
     
     /// 代理
     var delegate: (SZBaseCellDelegate & SZCellControlProtocol)?
@@ -735,10 +735,10 @@ class DifferentDataModelFourCell: UITableViewCell, SZDifferentDataModelCellProto
         }
     }
     
-    func doSomethingConfigElse() {
-        
-        print("做点别的配置什么的！！！")
-    }
+//    func doSomethingConfigElse() {
+//        
+//        print("做点别的配置什么的！！！")
+//    }
 }
 
 // MARK: - UI

@@ -112,15 +112,15 @@ extension DifferentDataModelListViewController: UITableViewDataSource, UITableVi
             if let data = viewModel.showArray?[indexPath.section],
                 let type = type(of: data) as? AnyClass,
                 let cellBuilder = cellBuildFactory.getCellBuilderWithDataType(dataType: type),
-                var cell = tableView.dequeueReusableCell(withIdentifier: cellBuilder.cellReuseId()) as? SZDifferentDataModelCellProtocol,
+                var cell = tableView.dequeueReusableCell(withIdentifier: cellBuilder.cellReuseId()) as? SZBaseCellProtocol,
                 let cellControlDelegate = cellControlFactory.getCellControlWithDataType(dataType: type) {
                 
                 cell.delegate = cellControlDelegate
                 
                 cell.configWithData(data: data)
                 
-                // 测试代码
-                cell.doSomethingConfigElse()
+//                // 测试代码
+//                cell.doSomethingConfigElse()
                 
                 return cell as? UITableViewCell ?? UITableViewCell()
             }

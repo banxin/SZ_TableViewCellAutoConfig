@@ -44,16 +44,20 @@ import UIKit
     @objc optional func tapedMaterialOnCell(cell: UITableViewCell)
 }
 
-/// 不同的数据模型 cell 控制 代理
-@objc protocol SZDifferentDataModelCellControlProtocol: SZCellControlProtocol {
-    
-    /// 做点别的什么事情
-    @objc func doSomethingElse()
-}
+/*
+ 暂时不支持一下两个 Protocol 的继承
+ */
 
-/// 不同的数据模型 cell 配置 协议
-protocol SZDifferentDataModelCellProtocol: SZBaseCellProtocol {
-    
-    /// 做点别的什么事情
-    func doSomethingConfigElse()
-}
+///// 不同的数据模型 cell 控制 代理
+//@objc protocol SZDifferentDataModelCellControlProtocol: SZCellControlProtocol {
+//
+//    /// 做点别的什么事情
+//    @objc func doSomethingElse()
+//}
+
+///// 不同的数据模型 cell 配置 协议
+//protocol SZDifferentDataModelCellProtocol: SZBaseCellProtocol {
+//
+//    /// 做点别的什么事情
+//    func doSomethingConfigElse()
+//}

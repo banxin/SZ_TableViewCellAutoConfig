@@ -9,9 +9,9 @@
 import UIKit
 
 /// 封装 事件处理基类
-class SZEncapsulationBaseActionControl: NSObject, SZDifferentDataModelCellControlProtocol, SZDifferentDataModelCellDelegate {
+class SZEncapsulationBaseActionControl: NSObject, SZCellControlProtocol, SZDifferentDataModelCellDelegate {
     
-    // MARK: - SZDifferentDataModelCellControlProtocol
+    // MARK: - SZCellControlProtocol
     
     var dataSource: SZCellControlDataSource?
     

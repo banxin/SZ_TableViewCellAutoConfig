@@ -56,7 +56,7 @@ class DifferentDataModelTypeTwoCellBuilder: SZCellBuilderProtocol {
             
             return cell.sz_cellHeight(forTableView: tableView, config: { (targetCell) in
                 
-                if let pro = targetCell as? SZDifferentDataModelCellProtocol {
+                if let pro = targetCell as? SZBaseCellProtocol {
                     
                     pro.configWithData(data: model)
                 }
@@ -112,7 +112,7 @@ class DifferentDataModelTypeThreeCellBuilder: SZCellBuilderProtocol {
             
             return cell.sz_cellHeight(forTableView: tableView, config: { (targetCell) in
                 
-                if let pro = targetCell as? SZDifferentDataModelCellProtocol {
+                if let pro = targetCell as? SZBaseCellProtocol {
                     
                     pro.configWithData(data: model)
                 }

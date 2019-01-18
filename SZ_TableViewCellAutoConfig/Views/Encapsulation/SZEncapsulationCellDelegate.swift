@@ -44,16 +44,16 @@ import UIKit
     @objc optional func tapedMaterialOnCell(cell: UITableViewCell)
 }
 
-/// 封装 cell 控制 代理
-@objc protocol SZEncapsulationCellControlProtocol: SZCellControlProtocol {
-    
-    /// 做点别的什么事情
-    @objc func doSomethingElse()
-}
-
-/// 封装 cell 配置 协议
-protocol SZEncapsulationCellProtocol: SZBaseCellProtocol {
-    
-    /// 做点别的什么事情
-    func doSomethingConfigElse()
-}
+///// 封装 cell 控制 代理
+//@objc protocol SZEncapsulationCellControlProtocol: SZCellControlProtocol {
+//    
+//    /// 做点别的什么事情
+//    @objc func doSomethingElse()
+//}
+//
+///// 封装 cell 配置 协议
+//protocol SZEncapsulationCellProtocol: SZBaseCellProtocol {
+//    
+//    /// 做点别的什么事情
+//    func doSomethingConfigElse()
+//}
